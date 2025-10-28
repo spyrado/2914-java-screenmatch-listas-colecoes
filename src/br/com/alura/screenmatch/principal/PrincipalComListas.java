@@ -24,12 +24,21 @@ public class PrincipalComListas {
     lista.add(outroFilme);
     lista.add(lost);
 
-    for (Titulo item: lista) {
-      System.out.println(item.getNome());
-      if(item instanceof Filme filme) {
-        System.out.println(filme.getClassificacao());
-      }
-    }
+    // versao de estudo
+//    for (Titulo item: lista) {
+//      System.out.println(item.getNome());
+//      if(item instanceof Filme filme) {
+//        System.out.println(filme.getClassificacao());
+//      }
+//    }
+//
+    // versao mais moderna
+    lista
+        .stream()
+        .peek(item -> System.out.println("TITULO: " + item.getNome()))
+        .filter(Filme.class::isInstance)
+        .map(Filme.class::cast)
+        .forEach(filme -> System.out.println("Classificação: " + filme.getClassificacao()));
 
 //    System.out.println(lista);
   }
