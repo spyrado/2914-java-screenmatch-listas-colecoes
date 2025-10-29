@@ -71,5 +71,10 @@ public class PrincipalComListas {
     Collections.sort(lista, Comparator.comparing(Titulo::getNome).reversed());
     System.out.println(lista);
 
+    // ordenação LISTA DE FILMES sem usar o segundo parametro ( pois foi implementada a interface Comparable dentro da classe Titulo
+    System.out.println("=== LISTA DE FILMES COM ORDENAÇÃO implementando a interface Comparable === ");
+    Collections.sort(lista);
+    System.out.println(lista);
+
   }
 }
