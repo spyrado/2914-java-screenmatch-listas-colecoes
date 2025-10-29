@@ -76,5 +76,9 @@ public class PrincipalComListas {
     Collections.sort(lista);
     System.out.println(lista);
 
+    System.out.println("=== ORDENANDO POR ANO DE LANÇAMENTO === ");
+    lista.sort(Comparator.comparing(Titulo::getAnoDeLancamento));
+    System.out.println(lista);
+
   }
 }
