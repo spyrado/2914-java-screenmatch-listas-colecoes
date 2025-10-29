@@ -5,6 +5,9 @@ import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class PrincipalComListas {
 
@@ -41,5 +44,32 @@ public class PrincipalComListas {
         .forEach(filme -> System.out.println("Classificação: " + filme.getClassificacao()));
 
 //    System.out.println(lista);
+
+    // ordenação LISTA DE STRING
+
+    ArrayList<String> nomes = new ArrayList<>();
+    nomes.add("Zayon");
+    nomes.add("Gol");
+    nomes.add("Apetrecho");
+    System.out.println("=== LISTA DE STRING SEM ORDENAÇÃO === ");
+    System.out.println(nomes);
+
+    System.out.println("=== LISTA DE STRING COM ORDENAÇÃO === ");
+    Collections.sort(nomes);
+    System.out.println(nomes);
+
+    System.out.println("=== LISTA DE FILMES SEM ORDENAÇÃO === ");
+    System.out.println(lista);
+
+    // ordenação LISTA DE FILMES (OBJETOS)
+    System.out.println("=== LISTA DE FILMES COM ORDENAÇÃO === ");
+//    Collections.sort(lista, (f1,f2) -> f1.getNome().compareTo(f2.getNome()));
+    Collections.sort(lista, Comparator.comparing(Titulo::getNome));
+    System.out.println(lista);
+
+    System.out.println("=== LISTA DE FILMES ORDENÇÃO INVERSA === ");
+    Collections.sort(lista, Comparator.comparing(Titulo::getNome).reversed());
+    System.out.println(lista);
+
   }
 }
